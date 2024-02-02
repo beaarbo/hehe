@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+        #valentine-container {
+            text-align: center;
+        }
+        #no-button {
+            margin-right: 20px;
+        }
+        #hidden-message {
+            display: none;
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="valentine-container">
+    <h1>Will You Be My Valentine?</h1>
+    <button id="yes-button" onclick="showLoveMessage()">Yes</button>
+    <button id="no-button" onclick="moveNoButton()">No</button>
+    <p id="hidden-message"></p>
+</div>
+
+<script>
+    function moveNoButton() {
+        var noButton = document.getElementById("no-button");
+        var hiddenMessage = document.getElementById("hidden-message");
+
+        // Move the no button to another part of the screen
+        noButton.style.position = "absolute";
+        var newX = Math.floor(Math.random() * window.innerWidth);
+        var newY = Math.floor(Math.random() * window.innerHeight);
+        noButton.style.left = newX + "px";
+        noButton.style.top = newY + "px";
+
+        // Show hidden message
+        hiddenMessage.style.display = "block";
+    }
+
+    function showLoveMessage() {
+        var valentineContainer = document.getElementById("valentine-container");
+        valentineContainer.innerHTML = "<h1>I Love You! See You Soon <3</h1>";
+    }
+</script>
+
+</body>
+</html>
